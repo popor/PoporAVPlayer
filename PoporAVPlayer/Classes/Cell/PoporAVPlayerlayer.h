@@ -1,5 +1,5 @@
 //
-//  AVCustomePlayerlayer.h
+//  PoporAVPlayerlayer.h
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface AVCustomePlayerlayer : UIView
+@interface PoporAVPlayerlayer : UIView
 
 @end

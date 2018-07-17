@@ -1,14 +1,14 @@
 //
-//  AVCustomePlayerlayer.m
+//  PoporAVPlayerlayer.m
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
 //  Copyright © 2018年 popor. All rights reserved.
 //
 
-#import "AVCustomePlayerlayer.h"
+#import "PoporAVPlayerlayer.h"
 
-@implementation AVCustomePlayerlayer
+@implementation PoporAVPlayerlayer
 
 + (Class)layerClass {
     return [AVPlayerLayer class];

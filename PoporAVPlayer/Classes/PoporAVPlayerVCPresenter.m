@@ -1,13 +1,13 @@
 //
-//  AVPlayerVCPresenter.m
+//  PoporAVPlayerVCPresenter.m
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
 //  Copyright © 2018年 popor. All rights reserved.
 
-#import "AVPlayerVCPresenter.h"
-#import "AVPlayerVCInteractor.h"
-#import "AVPlayerVCProtocol.h"
+#import "PoporAVPlayerVCPresenter.h"
+#import "PoporAVPlayerVCInteractor.h"
+#import "PoporAVPlayerVCProtocol.h"
 
 #import <KVOController/KVOController.h>
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -23,10 +23,10 @@ NSString * const kPlayableKey    = @"playable";
 //NSString * const kCurrentItemKey = @"currentItem";
 NSString * const kStatusKey      = @"status";
 
-@interface AVPlayerVCPresenter ()
+@interface PoporAVPlayerVCPresenter ()
 
-@property (nonatomic, weak  ) id<AVPlayerVCProtocol> view;
-@property (nonatomic, strong) AVPlayerVCInteractor * interactor;
+@property (nonatomic, weak  ) id<PoporAVPlayerVCProtocol> view;
+@property (nonatomic, strong) PoporAVPlayerVCInteractor * interactor;
 
 @property (strong, nonatomic) AVPlayerItem            *playerItem;
 @property (strong, nonatomic) id                      timeObserver;
@@ -37,7 +37,7 @@ NSString * const kStatusKey      = @"status";
 
 @end
 
-@implementation AVPlayerVCPresenter
+@implementation PoporAVPlayerVCPresenter
 
 - (id)init {
     if (self = [super init]) {
@@ -47,13 +47,13 @@ NSString * const kStatusKey      = @"status";
     return self;
 }
 
-- (void)setMyView:(id<AVPlayerVCProtocol>)view {
+- (void)setMyView:(id<PoporAVPlayerVCProtocol>)view {
     self.view = view;
 }
 
 - (void)initInteractors {
     if (!self.interactor) {
-        self.interactor = [AVPlayerVCInteractor new];
+        self.interactor = [PoporAVPlayerVCInteractor new];
         
     }
 }

@@ -1,26 +1,26 @@
 //
-//  AVPlayerTimeIndicatorView.m
+//  PoporAVPlayerTimeIndicatorView.m
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
 //  Copyright © 2018年 popor. All rights reserved.
 //
 
-#import "AVPlayerTimeIndicatorView.h"
+#import "PoporAVPlayerTimeIndicatorView.h"
 
 #import "PoporAVPlayerBundle.h"
 
 static const CGFloat ZBViewSpacing                          = 15.0;
 static const CGFloat ZBTimeIndicatorAutoFadeOutTimeInterval = 1.0;
 
-@interface AVPlayerTimeIndicatorView ()
+@interface PoporAVPlayerTimeIndicatorView ()
 
 @property (nonatomic, strong, readwrite) UIImageView *arrowImageView;
 @property (nonatomic, strong, readwrite) UILabel     *timeLabel;
 
 @end
 
-@implementation AVPlayerTimeIndicatorView
+@implementation PoporAVPlayerTimeIndicatorView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

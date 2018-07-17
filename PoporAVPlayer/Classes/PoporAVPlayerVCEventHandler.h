@@ -1,5 +1,5 @@
 //
-//  AVPlayerVCEventHandler.h
+//  PoporAVPlayerVCEventHandler.h
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 // UI事件
-@protocol AVPlayerVCEventHandler <NSObject>
+@protocol PoporAVPlayerVCEventHandler <NSObject>
 //- (void)didTouchLoginButton;
 
 - (void)handleSingleTapGesture:(UITapGestureRecognizer *)recognizer;

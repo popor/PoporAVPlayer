@@ -1,5 +1,5 @@
 //
-//  AVPlayerVCDataSource.h
+//  PoporAVPlayerVCDataSource.h
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 // 数据来源
-@protocol AVPlayerVCDataSource <NSObject>
+@protocol PoporAVPlayerVCDataSource <NSObject>
 
 #pragma mark - 设置播放进度时间为0
 - (void)setDefaultProgressTime;

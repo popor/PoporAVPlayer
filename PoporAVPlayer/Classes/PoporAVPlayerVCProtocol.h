@@ -1,5 +1,5 @@
 //
-//  AVPlayerVCProtocol.h
+//  PoporAVPlayerVCProtocol.h
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
@@ -9,14 +9,14 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import "AVPlayerTimeIndicatorView.h"
-#import "AVPlayerPrifix.h"
+#import "PoporAVPlayerTimeIndicatorView.h"
+#import "PoporAVPlayerPrifix.h"
 
-#import "AVCustomePlayerlayer.h"
+#import "PoporAVPlayerlayer.h"
 #import <PoporOrientation/PoporOrientation.h>
 
 // 对外接口
-@protocol AVPlayerVCProtocol <NSObject>
+@protocol PoporAVPlayerVCProtocol <NSObject>
 
 // MARK: viper auto code
 //- (int)getViewCode;
@@ -25,7 +25,7 @@
 - (void)setMyPresent:(id)present;
 
 @property (nonatomic, strong) AVPlayer * avPlayer;
-@property (nonatomic, strong) AVCustomePlayerlayer * avCustomePlayerlayer;
+@property (nonatomic, strong) PoporAVPlayerlayer * PoporAVPlayerlayer;
 
 // UI
 @property (nonatomic, strong) UIView         *topBar;
@@ -42,7 +42,7 @@
 @property (nonatomic, strong) NSURL          *videoURL;
 @property (nonatomic        ) NSInteger      startTick;// 开始播放视频的时间
 
-@property (nonatomic, strong) AVPlayerTimeIndicatorView      *timeIndicatorView;/// 快进、快退指示器
+@property (nonatomic, strong) PoporAVPlayerTimeIndicatorView      *timeIndicatorView;/// 快进、快退指示器
 
 
 @end

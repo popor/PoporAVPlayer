@@ -1,5 +1,5 @@
 //
-//  AVPlayerTimeIndicatorView.h
+//  PoporAVPlayerTimeIndicatorView.h
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, AVPlayerTimeIndicatorPlayState) {
+typedef NS_ENUM(NSUInteger, PoporAVPlayerTimeIndicatorPlayState) {
     AVPlayerTimeIndicatorRewind,      // rewind
     AVPlayerTimeIndicatorFastForward, // fast forward
 };
 
 static const CGFloat GLVideoTimeIndicatorViewSide = 96;
 
-@interface AVPlayerTimeIndicatorView : UIView
+@interface PoporAVPlayerTimeIndicatorView : UIView
 
 @property (nonatomic, strong, readwrite) NSString *labelText;
-@property (nonatomic, assign, readwrite) AVPlayerTimeIndicatorPlayState playState;
+@property (nonatomic, assign, readwrite) PoporAVPlayerTimeIndicatorPlayState playState;
 
 @end

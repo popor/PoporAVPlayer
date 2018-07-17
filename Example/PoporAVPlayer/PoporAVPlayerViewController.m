@@ -8,7 +8,7 @@
 
 #import "PoporAVPlayerViewController.h"
 
-#import <PoporAVPlayer/AVPlayerVCRouter.h>
+#import <PoporAVPlayer/PoporAVPlayerVCRouter.h>
 
 @interface PoporAVPlayerViewController ()
 
@@ -45,7 +45,7 @@
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"douyin" ofType:@"mp4"];
     NSURL * videoURL    = [NSURL fileURLWithPath:videoPath];
     
-    [self.navigationController pushViewController:[AVPlayerVCRouter vcWithDic:@{@"title":@"升降桌", @"videoURL":videoURL}] animated:YES];
+    [self.navigationController pushViewController:[PoporAVPlayerVCRouter vcWithDic:@{@"title":@"升降桌", @"videoURL":videoURL}] animated:YES];
 }
 
 @end

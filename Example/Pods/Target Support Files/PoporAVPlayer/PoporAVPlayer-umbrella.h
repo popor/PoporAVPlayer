@@ -10,17 +10,17 @@
 #endif
 #endif
 
-#import "AVPlayerPrifix.h"
-#import "AVPlayerVC.h"
-#import "AVPlayerVCDataSource.h"
-#import "AVPlayerVCEventHandler.h"
-#import "AVPlayerVCInteractor.h"
-#import "AVPlayerVCPresenter.h"
-#import "AVPlayerVCProtocol.h"
-#import "AVPlayerVCRouter.h"
 #import "PoporAVPlayerBundle.h"
-#import "AVCustomePlayerlayer.h"
-#import "AVPlayerTimeIndicatorView.h"
+#import "PoporAVPlayerPrifix.h"
+#import "PoporAVPlayerVC.h"
+#import "PoporAVPlayerVCDataSource.h"
+#import "PoporAVPlayerVCEventHandler.h"
+#import "PoporAVPlayerVCInteractor.h"
+#import "PoporAVPlayerVCPresenter.h"
+#import "PoporAVPlayerVCProtocol.h"
+#import "PoporAVPlayerVCRouter.h"
+#import "PoporAVPlayerlayer.h"
+#import "PoporAVPlayerTimeIndicatorView.h"
 
 FOUNDATION_EXPORT double PoporAVPlayerVersionNumber;
 FOUNDATION_EXPORT const unsigned char PoporAVPlayerVersionString[];

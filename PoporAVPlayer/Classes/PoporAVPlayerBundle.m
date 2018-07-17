@@ -12,7 +12,7 @@
 + (NSBundle *)bundle {
     static NSBundle *refreshBundle = nil;
     if (!refreshBundle) {
-        refreshBundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[PoporAVPlayerBundle class]] pathForResource:@"PoporAVPlayer" ofType:@"bundle"]];
+        refreshBundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[PoporAVPlayerBundle class]] pathForResource:@"icon" ofType:@"bundle"]];
     }
     return refreshBundle;
 }

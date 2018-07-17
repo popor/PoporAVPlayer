@@ -1,12 +1,12 @@
 //
-//  AVPlayerVC.m
+//  PoporAVPlayerVC.m
 //  linRunShengPi
 //
 //  Created by popor on 2018/1/20.
 //  Copyright © 2018年 popor. All rights reserved.
 
-#import "AVPlayerVC.h"
-#import "AVPlayerVCRouter.h"
+#import "PoporAVPlayerVC.h"
+#import "PoporAVPlayerVCRouter.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <PoporPopNC/UIViewController+ncBar.h>
 #import <Masonry/Masonry.h>
@@ -18,15 +18,15 @@ static int GLViewIndex     = 0;
 static int GLControllIndex = 1;
 
 
-@interface AVPlayerVC ()
+@interface PoporAVPlayerVC ()
 
-@property (nonatomic, strong) id<AVPlayerVCEventHandler, AVPlayerVCDataSource> present;
+@property (nonatomic, strong) id<PoporAVPlayerVCEventHandler, PoporAVPlayerVCDataSource> present;
 
 @end
 
-@implementation AVPlayerVC
+@implementation PoporAVPlayerVC
 @synthesize avPlayer;
-@synthesize avCustomePlayerlayer;
+@synthesize PoporAVPlayerlayer;
 
 @synthesize topBar;
 @synthesize bottomBar;
@@ -46,7 +46,7 @@ static int GLControllIndex = 1;
 
 - (void)dealloc {
     [self.present removeKVO];
-    NSLog(@"AVPlayerVC dealloc, work well.");
+    NSLog(@"PoporAVPlayerVC dealloc, work well.");
 }
 
 - (instancetype)initWithDic:(NSDictionary *)dic {
@@ -63,11 +63,11 @@ static int GLControllIndex = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (!self.title) {
-        self.title = @"AVPlayerVC";
+        self.title = @"PoporAVPlayerVC";
     }
     self.view.backgroundColor = [UIColor whiteColor];
     if (!self.present) {
-        [AVPlayerVCRouter setVCPresent:self];
+        [PoporAVPlayerVCRouter setVCPresent:self];
     }
     
     [self addViews];
@@ -97,12 +97,12 @@ static int GLControllIndex = 1;
         self.avPlayer = [[AVPlayer alloc] init];
         
     }
-    if (!self.avCustomePlayerlayer) {
-        self.avCustomePlayerlayer = [[AVCustomePlayerlayer alloc] init];
-        self.avCustomePlayerlayer.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    if (!self.PoporAVPlayerlayer) {
+        self.PoporAVPlayerlayer = [[PoporAVPlayerlayer alloc] init];
+        self.PoporAVPlayerlayer.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         
-        [self.view insertSubview:self.avCustomePlayerlayer atIndex:GLViewIndex];
-        AVPlayerLayer * layer = (AVPlayerLayer *)self.avCustomePlayerlayer.layer;
+        [self.view insertSubview:self.PoporAVPlayerlayer atIndex:GLViewIndex];
+        AVPlayerLayer * layer = (AVPlayerLayer *)self.PoporAVPlayerlayer.layer;
         [layer setPlayer:self.avPlayer];
     }
     [self addTopBottomBarViews];
@@ -267,9 +267,9 @@ static int GLControllIndex = 1;
     return bufferProgressView;
 }
 
-- (AVPlayerTimeIndicatorView *)timeIndicatorView {
+- (PoporAVPlayerTimeIndicatorView *)timeIndicatorView {
     if (!timeIndicatorView) {
-        timeIndicatorView = [[AVPlayerTimeIndicatorView alloc] initWithFrame:CGRectMake(0, 0, GLVideoTimeIndicatorViewSide, GLVideoTimeIndicatorViewSide)];
+        timeIndicatorView = [[PoporAVPlayerTimeIndicatorView alloc] initWithFrame:CGRectMake(0, 0, GLVideoTimeIndicatorViewSide, GLVideoTimeIndicatorViewSide)];
     }
     return timeIndicatorView;
 }
@@ -292,7 +292,7 @@ static int GLControllIndex = 1;
     [super viewDidLayoutSubviews];
     
     __weak typeof(self) weakSelf = self;
-    [self.avCustomePlayerlayer mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.PoporAVPlayerlayer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     {
