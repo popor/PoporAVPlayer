@@ -1,0 +1,63 @@
+PODS:
+  - KVOController (1.2.0)
+  - Masonry (1.1.0)
+  - PoporAVPlayer (0.0.1):
+    - KVOController
+    - Masonry
+    - PoporAVPlayer/Cell (= 0.0.1)
+    - PoporOrientation
+    - PoporPopNC
+    - PoporUI/IToast
+    - PoporUI/UIView
+    - ReactiveObjC
+  - PoporAVPlayer/Cell (0.0.1):
+    - KVOController
+    - Masonry
+    - PoporOrientation
+    - PoporPopNC
+    - PoporUI/IToast
+    - PoporUI/UIView
+    - ReactiveObjC
+  - PoporFoundation/NSObject (0.0.12)
+  - PoporFoundation/NSString (0.0.12):
+    - PoporFoundation/PrefixOs
+  - PoporFoundation/PrefixOs (0.0.12)
+  - PoporOrientation (0.0.1):
+    - PoporFoundation/NSObject
+  - PoporPopNC (0.0.2):
+    - PoporFoundation/NSObject
+  - PoporUI/IToast (0.0.7):
+    - PoporFoundation/NSString
+  - PoporUI/UIView (0.0.7)
+  - ReactiveObjC (3.1.0)
+
+DEPENDENCIES:
+  - PoporAVPlayer (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KVOController
+    - Masonry
+    - PoporFoundation
+    - PoporOrientation
+    - PoporPopNC
+    - PoporUI
+    - ReactiveObjC
+
+EXTERNAL SOURCES:
+  PoporAVPlayer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  PoporAVPlayer: c1b389f43aad85d223e28792cc51e2a3c659aca4
+  PoporFoundation: d3acb352802d0fbf6ac673685d80ca3a8be84b21
+  PoporOrientation: e06064e95ea2783db817828904806c2873b24f3b
+  PoporPopNC: 73d6eaef198315704284a08d7554f5ba90e70ad3
+  PoporUI: 22d654ee371bfdb02d5529084f20ccca2dd286e3
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+
+PODFILE CHECKSUM: eaaf0d04232028d717c5cc0b32373adcb0ae1b4e
+
+COCOAPODS: 1.5.3

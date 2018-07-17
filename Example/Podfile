@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PoporAVPlayer_Example' do
+  pod 'PoporAVPlayer', :path => '../'
+
+  target 'PoporAVPlayer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

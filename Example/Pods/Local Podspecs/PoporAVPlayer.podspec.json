@@ -1,0 +1,51 @@
+{
+  "name": "PoporAVPlayer",
+  "version": "0.0.1",
+  "summary": "A short description of PoporAVPlayer.",
+  "homepage": "https://github.com/popor/PoporAVPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "popor": "908891024@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/popor/PoporAVPlayer.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PoporAVPlayer/Classes/*.{h,m}",
+  "resources": "PoporAVPlayer/Classes/PoporAVPlayer.bundle",
+  "dependencies": {
+    "PoporOrientation": [
+
+    ],
+    "PoporPopNC": [
+
+    ],
+    "PoporUI/UIView": [
+
+    ],
+    "PoporUI/IToast": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "KVOController": [
+
+    ],
+    "ReactiveObjC": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Cell",
+      "source_files": "PoporAVPlayer/Classes/Cell/*.{h,m}"
+    }
+  ]
+}

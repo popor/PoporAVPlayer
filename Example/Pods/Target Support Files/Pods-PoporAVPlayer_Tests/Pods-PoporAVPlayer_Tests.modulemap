@@ -1,0 +1,6 @@
+framework module Pods_PoporAVPlayer_Tests {
+  umbrella header "Pods-PoporAVPlayer_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
