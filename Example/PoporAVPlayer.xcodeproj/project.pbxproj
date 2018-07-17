@@ -68,7 +68,7 @@
 		86E66629FF3CD485189C3ECD /* Pods-PoporAVPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoporAVPlayer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoporAVPlayer_Example/Pods-PoporAVPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D1960B3B7BCB87EB31013190 /* Pods_PoporAVPlayer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoporAVPlayer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECBEB85B984D283163CA4B10 /* PoporAVPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PoporAVPlayer.podspec; path = ../PoporAVPlayer.podspec; sourceTree = "<group>"; };
+		ECBEB85B984D283163CA4B10 /* PoporAVPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PoporAVPlayer.podspec; path = ../PoporAVPlayer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +336,6 @@
 				"${BUILT_PRODUCTS_DIR}/PoporAVPlayer/PoporAVPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/PoporFoundation/PoporFoundation.framework",
 				"${BUILT_PRODUCTS_DIR}/PoporOrientation/PoporOrientation.framework",
-				"${BUILT_PRODUCTS_DIR}/PoporPopNC/PoporPopNC.framework",
 				"${BUILT_PRODUCTS_DIR}/PoporUI/PoporUI.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 			);
@@ -347,7 +346,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PoporAVPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PoporFoundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PoporOrientation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PoporPopNC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PoporUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 			);

@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "NSAssistant.h"
 #import "NSObject+Swizzling.h"
 #import "NSString+email.h"
 #import "NSString+format.h"
@@ -18,6 +19,11 @@
 #import "NSString+Size.h"
 #import "NSString+Tool.h"
 #import "PrefixOs.h"
+#import "BlockMacroDefines.h"
+#import "ColorPrefix.h"
+#import "FontPrefix.h"
+#import "FunctionPrefix.h"
+#import "SizePrefix.h"
 
 FOUNDATION_EXPORT double PoporFoundationVersionNumber;
 FOUNDATION_EXPORT const unsigned char PoporFoundationVersionString[];

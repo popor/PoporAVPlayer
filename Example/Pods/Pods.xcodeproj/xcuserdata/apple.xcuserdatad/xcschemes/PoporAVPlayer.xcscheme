@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A90EE3C47A500A705BC759A3130D03F5"
+               BlueprintIdentifier = "8F98065EEDABF5BC13856FA8D0193CB0"
                BlueprintName = "PoporAVPlayer"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "PoporAVPlayer.framework">

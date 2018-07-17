@@ -148,7 +148,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/PoporAVPlayer/PoporAVPlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PoporFoundation/PoporFoundation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PoporOrientation/PoporOrientation.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PoporPopNC/PoporPopNC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PoporUI/PoporUI.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework"
 fi
@@ -158,7 +157,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/PoporAVPlayer/PoporAVPlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PoporFoundation/PoporFoundation.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PoporOrientation/PoporOrientation.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PoporPopNC/PoporPopNC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PoporUI/PoporUI.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework"
 fi

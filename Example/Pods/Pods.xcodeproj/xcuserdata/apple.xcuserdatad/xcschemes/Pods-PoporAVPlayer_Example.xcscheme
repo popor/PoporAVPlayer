@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EA7060F19D63D33CFA2FED7C969C52C4"
+               BlueprintIdentifier = "FCD5C52C2215F095DED20720E8714E2A"
                BuildableName = "Pods_PoporAVPlayer_Example.framework"
                BlueprintName = "Pods-PoporAVPlayer_Example"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EA7060F19D63D33CFA2FED7C969C52C4"
+            BlueprintIdentifier = "FCD5C52C2215F095DED20720E8714E2A"
             BuildableName = "Pods_PoporAVPlayer_Example.framework"
             BlueprintName = "Pods-PoporAVPlayer_Example"
             ReferencedContainer = "container:Pods.xcodeproj">

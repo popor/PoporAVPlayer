@@ -8,9 +8,9 @@
 #import "PoporAVPlayerVC.h"
 #import "PoporAVPlayerVCRouter.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import <PoporPopNC/UIViewController+ncBar.h>
 #import <Masonry/Masonry.h>
 #import <PoporUI/UIView+Extension.h>
+#import <PoporFoundation/NSAssistant.h>
 
 #import "PoporAVPlayerBundle.h"
 
@@ -43,6 +43,8 @@ static int GLControllIndex = 1;
 
 @synthesize rotateButton;
 @synthesize timeIndicatorView;
+@synthesize willAppearBlock;
+@synthesize willDisappearBlock;
 
 - (void)dealloc {
     [self.present removeKVO];
@@ -51,11 +53,7 @@ static int GLControllIndex = 1;
 
 - (instancetype)initWithDic:(NSDictionary *)dic {
     if (self = [super init]) {
-        if (dic) {
-            self.title    = dic[@"title"];
-            self.videoURL = dic[@"videoURL"];
-        }
-        self.needHiddenNVBar = @(YES); // 本项目的Runtime参数,隐藏导航栏
+        [NSAssistant setVC:self dic:dic];
     }
     return self;
 }
@@ -63,7 +61,7 @@ static int GLControllIndex = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (!self.title) {
-        self.title = @"PoporAVPlayerVC";
+        self.title = @"播放器";
     }
     self.view.backgroundColor = [UIColor whiteColor];
     if (!self.present) {
@@ -81,13 +79,21 @@ static int GLControllIndex = 1;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    if (self.willAppearBlock) {
+        self.willAppearBlock();
+    }else{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
     [self addNC:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
+    if (self.willDisappearBlock) {
+        self.willDisappearBlock();
+    }else{
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
     [self addNC:NO];
 }
 

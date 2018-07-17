@@ -18,18 +18,21 @@
     "ios": "8.0"
   },
   "source_files": "PoporAVPlayer/Classes/*.{h,m}",
-  "resources": "PoporAVPlayer/Classes/PoporAVPlayer.bundle",
+  "resources": "PoporAVPlayer/Classes/icon.bundle",
   "dependencies": {
     "PoporOrientation": [
-
-    ],
-    "PoporPopNC": [
 
     ],
     "PoporUI/UIView": [
 
     ],
     "PoporUI/IToast": [
+
+    ],
+    "PoporFoundation/prefix": [
+
+    ],
+    "PoporFoundation/NSAssistant": [
 
     ],
     "Masonry": [

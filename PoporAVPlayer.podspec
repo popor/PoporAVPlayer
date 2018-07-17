@@ -27,14 +27,15 @@ Pod::Spec.new do |s|
         ss.source_files = 'PoporAVPlayer/Classes/Cell/*.{h,m}'
     end
     
-    s.resource     = 'PoporAVPlayer/Classes/PoporAVPlayer.bundle'
+    s.resource     = 'PoporAVPlayer/Classes/icon.bundle'
     
     # s.public_header_files = 'Pod/Classes/**/*.h'
     # s.frameworks = 'UIKit', 'MapKit'
     s.dependency 'PoporOrientation'
-    s.dependency 'PoporPopNC'
     s.dependency 'PoporUI/UIView'
     s.dependency 'PoporUI/IToast'
+    s.dependency 'PoporFoundation/prefix'
+    s.dependency 'PoporFoundation/NSAssistant'
     
     s.dependency 'Masonry'
     s.dependency 'KVOController'

@@ -14,6 +14,8 @@
 
 #import "PoporAVPlayerlayer.h"
 #import <PoporOrientation/PoporOrientation.h>
+#import <PoporFoundation/BlockMacroDefines.h>
+
 
 // 对外接口
 @protocol PoporAVPlayerVCProtocol <NSObject>
@@ -43,6 +45,10 @@
 @property (nonatomic        ) NSInteger      startTick;// 开始播放视频的时间
 
 @property (nonatomic, strong) PoporAVPlayerTimeIndicatorView      *timeIndicatorView;/// 快进、快退指示器
+
+@property (nonatomic, copy  ) BlockPVoid    willAppearBlock;
+@property (nonatomic, copy  ) BlockPVoid    willDisappearBlock;
+
 
 
 @end
