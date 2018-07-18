@@ -11,51 +11,85 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### 1.you need registe in AppDelegate
 ### 1.你需要在 AppDelegate中注册
-### - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-### {
-###    [PoporOrientation swizzlingAppDelegate:self];
-###    return YES;
-### }
+```
+- (BOOL)application:(UIApplication *)application did finishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [PoporOrientation swizzlingAppDelegate:self];
+    return YES;
+}
 
-### - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window {
-### 	// this will be replaced by PoporOrientation within runtime, do not remove!
-### 	return UIInterfaceOrientationMaskPortrait;
-### }
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window {
+	// this will be replaced by PoporOrientation within runtime, do not remove!
+	return UIInterfaceOrientationMaskPortrait;
+}
+```
 
 ### 2. demo
-### - (void)autoRotationAction:(UIButton *)bt {
-### 	[self removeOtherStatus:bt];
-### 	bt.selected = !bt.isSelected;
-### 	if (bt.isSelected) {
-### 		[PoporOrientation enableRatationAutoRotatedBlock:nil];
-###			[self closeLockEvent];
-### 	}else{
-###			 [PoporOrientation disabledRatation];
-### 	}
-### }
+```
+- (void)autoRotationAction:(UIButton *)bt {
+	bt.selected = !bt.isSelected;
+	if (bt.isSelected) {
+		[PoporOrientation enableAutoFinish:nil];
+		[self closeLockEvent];
+	}else{
+		[PoporOrientation disable];
+	}
+}
 
-### - (void)autoFisrtLeftAction:(UIButton *)bt {
-### 	[self removeOtherStatus:bt];
-###		bt.selected = !bt.isSelected;
-### 	if (bt.isSelected) {
-### 		[PoporOrientation enableRatationRotateTo:UIInterfaceOrientationLandscapeLeft rotatedBlock:nil];
-### 		[self closeLockEvent];
-### 	}else{
-### 		[PoporOrientation disabledRatation];
-### 	}
-### }
+- (void)lockAction:(UIButton *)bt {
+	bt.selected = !bt.isSelected;
+	[PoporOrientation share].lock = bt.isSelected;
+}
 
-### - (void)autoFisrtRightAction:(UIButton *)bt {
-### 	[self removeOtherStatus:bt];
-### 	bt.selected = !bt.isSelected;
-### 	if (bt.isSelected) {
-###			 [PoporOrientation enableRatationRotateTo:UIInterfaceOrientationLandscapeRight rotatedBlock:nil];
-### 		[self closeLockEvent];
-### 	}else{
-### 		[PoporOrientation disabledRatation];
-### 	}
-### }
+- (void)autoFisrtLeftAction:(UIButton *)bt {
+	bt.selected = !bt.isSelected;
+	if (bt.isSelected) {
+		[PoporOrientation enableRotateTo:UIInterfaceOrientationLandscapeLeft finish:nil];
+		[self closeLockEvent];
+	}else{
+		[PoporOrientation disable];
+	}
+}
 
+- (void)autoFisrtRightAction:(UIButton *)bt {
+	bt.selected = !bt.isSelected;
+	if (bt.isSelected) {
+		[PoporOrientation enableRotateTo:UIInterfaceOrientationLandscapeRight finish:nil];
+		[self closeLockEvent];
+	}else{
+		[PoporOrientation disable];
+	}
+}
+
+- (void)autoPriorityLeftAction:(UIButton *)bt {
+	bt.selected = !bt.isSelected;
+	if (bt.isSelected) {
+		[PoporOrientation enablePriorityLeftFinish:nil];
+		[self closeLockEvent];
+	}else{
+		[PoporOrientation disable];
+	}
+}
+
+- (void)autoPriorityRightAction:(UIButton *)bt {
+	bt.selected = !bt.isSelected;
+	if (bt.isSelected) {
+		[PoporOrientation enablePriorityRightFinish:nil];
+		[self closeLockEvent];
+	}else{
+		[PoporOrientation disable];
+	}
+}
+
+- (void)closeLockEvent {
+	if (self.lockBT.isSelected) {
+		dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			self.lockBT.selected = YES;
+			[self lockAction:self.lockBT];
+		});
+	}
+}
+```
 
 ## Requirements
 
@@ -70,7 +104,7 @@ pod 'PoporOrientation'
 
 ## Author
 
-wangkq, 908891024@qq.com
+popor, 908891024@qq.com
 
 ## License
 

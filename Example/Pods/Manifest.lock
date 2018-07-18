@@ -28,7 +28,7 @@ PODS:
   - PoporFoundation/prefix (0.0.12):
     - PoporFoundation/PrefixOs
   - PoporFoundation/PrefixOs (0.0.12)
-  - PoporOrientation (0.0.1):
+  - PoporOrientation (0.0.3):
     - PoporFoundation/NSObject
   - PoporUI/IToast (0.0.7):
     - PoporFoundation/NSString
@@ -56,7 +56,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PoporAVPlayer: 4db2bdecd0421952dd957812eaa1641ad7ce78d5
   PoporFoundation: d3acb352802d0fbf6ac673685d80ca3a8be84b21
-  PoporOrientation: e06064e95ea2783db817828904806c2873b24f3b
+  PoporOrientation: 92216eb28427bc152e897c5edf6725aaa1c766cf
   PoporUI: 22d654ee371bfdb02d5529084f20ccca2dd286e3
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
 

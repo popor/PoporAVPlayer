@@ -45,6 +45,9 @@ static int GLControllIndex = 1;
 @synthesize timeIndicatorView;
 @synthesize willAppearBlock;
 @synthesize willDisappearBlock;
+@synthesize lockRotateBT;
+@synthesize showLockRotateBT;
+
 
 - (void)dealloc {
     [self.present removeKVO];
@@ -69,6 +72,8 @@ static int GLControllIndex = 1;
     }
     
     [self addViews];
+    [self masLayoutSubviews];
+    
     [self.present setDefaultProgressTime];
     [self.present setupVideoPlaybackForURL:self.videoURL];
 }
@@ -95,6 +100,13 @@ static int GLControllIndex = 1;
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
     [self addNC:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // 恢复旋转锁.
+    [PoporOrientation share].lock = NO;
 }
 
 #pragma mark - views
@@ -141,12 +153,19 @@ static int GLControllIndex = 1;
     [self.view addSubview:self.timeIndicatorView];
     // 标题
     [self.topBar addSubview:self.titleLabel];
+    // 方向锁
+    if (self.showLockRotateBT) {
+        [self.topBar addSubview:self.lockRotateBT];
+    }
 }
 
 - (void)addTopBottomBarTargetAction {
     [self.playButton addTarget:self.present action:@selector(playButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self.rotateButton addTarget:self.present action:@selector(rotateAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.backButton addTarget:self.present action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    if (self.showLockRotateBT) {
+        [self.lockRotateBT addTarget:self.present action:@selector(lockRotateAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     [self.progressSlider addTarget:self.present action:@selector(beginScrub:) forControlEvents:UIControlEventTouchDown];
     [self.progressSlider addTarget:self.present action:@selector(scrubbing:) forControlEvents:UIControlEventValueChanged];
@@ -213,6 +232,17 @@ static int GLControllIndex = 1;
         playButton.bounds = CGRectMake(0, 0, GLVideoControlBarHeight, GLVideoControlBarHeight);
     }
     return playButton;
+}
+
+- (UIButton *)lockRotateBT {
+    if (!lockRotateBT) {
+        lockRotateBT = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [lockRotateBT setImage:PoporAVImage(@"unlock") forState:UIControlStateNormal];
+        [lockRotateBT setImage:PoporAVImage(@"lock") forState:UIControlStateSelected];
+        lockRotateBT.bounds = CGRectMake(0, 0, GLVideoControlBarHeight, GLVideoControlBarHeight);
+    }
+    return lockRotateBT;
 }
 
 - (UIButton *)rotateButton {
@@ -294,9 +324,7 @@ static int GLControllIndex = 1;
 }
 
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
+- (void)masLayoutSubviews {
     __weak typeof(self) weakSelf = self;
     [self.PoporAVPlayerlayer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -316,14 +344,32 @@ static int GLControllIndex = 1;
             make.width.mas_equalTo(60);
             make.height.mas_equalTo(44);
         }];
-        
-        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(weakSelf.backButton.mas_right);
-            //make.right.mas_equalTo(weakSelf.backButton.mas_right);
-            make.centerY.mas_equalTo(weakSelf.backButton.mas_centerY);
-            make.centerX.mas_equalTo(0);
-            make.height.mas_equalTo(40);
-        }];
+        if (self.showLockRotateBT) {
+            [self.lockRotateBT mas_makeConstraints:^(MASConstraintMaker *make) {
+                //make.left.mas_equalTo(weakSelf.backButton.mas_right);
+                make.right.mas_equalTo(0);
+                make.centerY.mas_equalTo(weakSelf.backButton.mas_centerY);
+                //make.centerX.mas_equalTo(0);
+                make.width.mas_equalTo(self.backButton.mas_width);
+                make.height.mas_equalTo(self.backButton.mas_height);
+            }];
+            [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(weakSelf.backButton.mas_right);
+                make.right.mas_equalTo(weakSelf.lockRotateBT.mas_left);
+                make.centerY.mas_equalTo(weakSelf.backButton.mas_centerY);
+                make.centerX.mas_equalTo(0);
+                make.height.mas_equalTo(40);
+            }];
+        }else{
+            
+            [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(weakSelf.backButton.mas_right);
+                //make.right.mas_equalTo(weakSelf.backButton.mas_right);
+                make.centerY.mas_equalTo(weakSelf.backButton.mas_centerY);
+                make.centerX.mas_equalTo(0);
+                make.height.mas_equalTo(40);
+            }];
+        }
     }
     {
         // 下面的

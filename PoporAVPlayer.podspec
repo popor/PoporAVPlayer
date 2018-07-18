@@ -9,8 +9,7 @@
 Pod::Spec.new do |s|
     s.name             = 'PoporAVPlayer'
     s.version          = '0.0.1'
-    s.summary          = 'A short description of PoporAVPlayer.'
-    
+    s.summary          = 'a simple video player, support orientation.'
     
     s.homepage         = 'https://github.com/popor/PoporAVPlayer'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -22,6 +21,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '8.0'
     
     s.source_files = 'PoporAVPlayer/Classes/*.{h,m}'
+    ss.ios.dependency  'PoporAVPlayer/Cell'
     
     s.subspec 'Cell' do |ss|
         ss.source_files = 'PoporAVPlayer/Classes/Cell/*.{h,m}'

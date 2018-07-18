@@ -9,6 +9,33 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+#### A simple video player, support orientation.
+
+### 1.you need registe in AppDelegate
+### 1.你需要在 AppDelegate中注册
+```
+- (BOOL)application:(UIApplication *)application did finishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+	[PoporOrientation swizzlingAppDelegate:self];
+	return YES;
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window {
+	// this will be replaced by PoporOrientation within runtime, do not remove!
+	return UIInterfaceOrientationMaskPortrait;
+}
+
+```
+### 2.demo
+```
+- (void)playVideoAction {
+	NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"douyin" ofType:@"mp4"];
+	NSURL * videoURL    = [NSURL fileURLWithPath:videoPath];
+
+	[self.navigationController pushViewController:[PoporAVPlayerVCRouter vcWithDic:@{@"title":@"升降桌", @"videoURL":videoURL, @"showLockRotateBT":@(YES)}] animated:YES];
+}
+```
+
 ## Requirements
 
 ## Installation

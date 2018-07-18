@@ -38,6 +38,7 @@
         [button addTarget:self action:@selector(playVideoAction) forControlEvents:UIControlEventTouchUpInside];
         button;
     });
+    oneBT.center = CGPointMake(self.view.center.x, 120);
 }
 
 
@@ -45,7 +46,7 @@
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"douyin" ofType:@"mp4"];
     NSURL * videoURL    = [NSURL fileURLWithPath:videoPath];
     
-    [self.navigationController pushViewController:[PoporAVPlayerVCRouter vcWithDic:@{@"title":@"升降桌", @"videoURL":videoURL}] animated:YES];
+    [self.navigationController pushViewController:[PoporAVPlayerVCRouter vcWithDic:@{@"title":@"升降桌", @"videoURL":videoURL, @"showLockRotateBT":@(YES)}] animated:YES];
 }
 
 @end

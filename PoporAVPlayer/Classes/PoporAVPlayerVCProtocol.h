@@ -40,14 +40,16 @@
 @property (nonatomic, strong) UIProgressView *bufferProgressView;/// 缓冲进度条
 @property (nonatomic, strong) UILabel        *timeLabel;
 @property (nonatomic, strong) UIButton       *rotateButton; // 视频旋转按钮
+@property (nonatomic, strong) UIButton       *lockRotateBT;
 
 @property (nonatomic, strong) NSURL          *videoURL;
 @property (nonatomic        ) NSInteger      startTick;// 开始播放视频的时间
 
-@property (nonatomic, strong) PoporAVPlayerTimeIndicatorView      *timeIndicatorView;/// 快进、快退指示器
+@property (nonatomic, strong) PoporAVPlayerTimeIndicatorView *timeIndicatorView;/// 快进、快退指示器
 
 @property (nonatomic, copy  ) BlockPVoid    willAppearBlock;
 @property (nonatomic, copy  ) BlockPVoid    willDisappearBlock;
+@property (nonatomic        ) BOOL          showLockRotateBT;// 是否显示锁定按钮
 
 
 

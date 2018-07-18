@@ -20,5 +20,6 @@
 - (void)endScrub:(UISlider *)sender;
 - (void)backButtonClick;
 - (void)rotateAction:(UIButton *)sender;
+- (void)lockRotateAction:(UIButton *)sender;
 
 @end

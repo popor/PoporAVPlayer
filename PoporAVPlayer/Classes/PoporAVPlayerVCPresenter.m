@@ -456,7 +456,16 @@ NSString * const kStatusKey      = @"status";
     sender.selected = !sender.isSelected;
     if (sender.isSelected) {
         __weak typeof(self) weakSelf = self;
-        [PoporOrientation enableRatationAutoRotatedBlock:^(UIDeviceOrientation orientation) {
+        //        [PoporOrientation enableAutoFinish:^(UIDeviceOrientation orientation) {
+        //            if (weakSelf) {
+        //                if (orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight) {
+        //                    weakSelf.view.vc.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        //                }else{
+        //                    weakSelf.view.vc.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        //                }
+        //            }
+        //        }];
+        [PoporOrientation enablePriorityLeftFinish:^(UIDeviceOrientation orientation) {
             if (weakSelf) {
                 if (orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight) {
                     weakSelf.view.vc.navigationController.interactivePopGestureRecognizer.enabled = NO;
@@ -466,7 +475,7 @@ NSString * const kStatusKey      = @"status";
             }
         }];
     }else{
-        [PoporOrientation disabledRatation];
+        [PoporOrientation disable];
     }
 }
 
@@ -480,6 +489,11 @@ NSString * const kStatusKey      = @"status";
             [self.view.vc dismissViewControllerAnimated:YES completion:nil];
         }
     }
+}
+
+- (void)lockRotateAction:(UIButton *)sender {
+    sender.selected = !sender.isSelected;
+    [PoporOrientation share].lock = sender.isSelected;
 }
 
 #pragma mark - Interactor_EventHandler
