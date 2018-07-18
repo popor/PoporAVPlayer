@@ -4,16 +4,6 @@ PODS:
   - PoporAVPlayer (0.0.1):
     - KVOController
     - Masonry
-    - PoporAVPlayer/Cell (= 0.0.1)
-    - PoporFoundation/NSAssistant
-    - PoporFoundation/prefix
-    - PoporOrientation
-    - PoporUI/IToast
-    - PoporUI/UIView
-    - ReactiveObjC
-  - PoporAVPlayer/Cell (0.0.1):
-    - KVOController
-    - Masonry
     - PoporFoundation/NSAssistant
     - PoporFoundation/prefix
     - PoporOrientation
@@ -54,7 +44,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PoporAVPlayer: 4db2bdecd0421952dd957812eaa1641ad7ce78d5
+  PoporAVPlayer: e30a14dae851937ed9055de35124219926d10478
   PoporFoundation: d3acb352802d0fbf6ac673685d80ca3a8be84b21
   PoporOrientation: 92216eb28427bc152e897c5edf6725aaa1c766cf
   PoporUI: 22d654ee371bfdb02d5529084f20ccca2dd286e3
