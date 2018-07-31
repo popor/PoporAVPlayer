@@ -285,7 +285,7 @@ static int GLControllIndex = 1;
 - (UIButton *)backButton {
     if (!backButton) {
         backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, GLVideoControlBarHeight , GLVideoControlBarHeight)];
-        UIImage * image = PoporAVImage(@"back");
+        //UIImage * image = PoporAVImage(@"back");
         [backButton setImage:PoporAVImage(@"back") forState:UIControlStateNormal];
         backButton.contentHorizontalAlignment =UIControlContentHorizontalAlignmentLeft;
         backButton.contentEdgeInsets = UIEdgeInsetsMake(5, 0, -5, 0);
