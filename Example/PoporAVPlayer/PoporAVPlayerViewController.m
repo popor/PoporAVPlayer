@@ -20,6 +20,8 @@
 {
     [super viewDidLoad];
 	
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
     self.title = @"视频播放";
     UIButton * oneBT = ({
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -46,6 +48,7 @@
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"douyin" ofType:@"mp4"];
     NSURL * videoURL    = [NSURL fileURLWithPath:videoPath];
     
+    videoURL = [NSURL URLWithString:@"https://yiche-static.oss-cn-hangzhou.aliyuncs.com/anjie/uploads/video/20181009/88b3d738583bb6c6c00c0c5f19fc381a.mp4"];
     [self.navigationController pushViewController:[PoporAVPlayerVCRouter vcWithDic:@{@"title":@"升降桌", @"videoURL":videoURL, @"showLockRotateBT":@(YES)}] animated:YES];
 }
 

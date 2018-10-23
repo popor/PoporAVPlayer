@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'PoporAVPlayer'
-    s.version          = '0.0.3'
+    s.version          = '0.0.05'
     s.summary          = 'a simple video player, support orientation.'
     
     s.homepage         = 'https://github.com/popor/PoporAVPlayer'
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     
     s.source_files = 'PoporAVPlayer/Classes/*.{h,m}'
     
-    s.resource     = 'PoporAVPlayer/Classes/icon.bundle'
+    s.resource     = 'PoporAVPlayer/Classes/PoporAVPlayer.bundle'
     
     # s.public_header_files = 'Pod/Classes/**/*.h'
     # s.frameworks = 'UIKit', 'MapKit'

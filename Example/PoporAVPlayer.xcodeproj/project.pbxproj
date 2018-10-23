@@ -258,6 +258,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = popor;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 6SK6RQ8S8Q;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -330,7 +333,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PoporAVPlayer_Example/Pods-PoporAVPlayer_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PoporAVPlayer_Example/Pods-PoporAVPlayer_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PoporAVPlayer/PoporAVPlayer.framework",
@@ -351,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoporAVPlayer_Example/Pods-PoporAVPlayer_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PoporAVPlayer_Example/Pods-PoporAVPlayer_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E16A5F25799F3CA5FEC77A5A /* [CP] Check Pods Manifest.lock */ = {
@@ -509,11 +512,12 @@
 			baseConfigurationReference = 6AB91011B158830937FDBE57 /* Pods-PoporAVPlayer_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6SK6RQ8S8Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PoporAVPlayer/PoporAVPlayer-Prefix.pch";
 				INFOPLIST_FILE = "PoporAVPlayer/PoporAVPlayer-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifcar99.wkq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,11 +528,12 @@
 			baseConfigurationReference = 86E66629FF3CD485189C3ECD /* Pods-PoporAVPlayer_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6SK6RQ8S8Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PoporAVPlayer/PoporAVPlayer-Prefix.pch";
 				INFOPLIST_FILE = "PoporAVPlayer/PoporAVPlayer-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifcar99.wkq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
