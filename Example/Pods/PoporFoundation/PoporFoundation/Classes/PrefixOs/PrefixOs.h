@@ -11,6 +11,7 @@
 
 // UI系列
 #if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
+#import <UIKit/UIKit.h>
 
 #define VIEW_CLASS  UIView
 #define VC_CLASS    UIViewController
@@ -19,10 +20,11 @@
 
 #define FONT_CLASS  UIFont
 #define COLOR_CLASS UIColor
-
+#define IMAGE_CLASS UIImage
 
 // NS系列
 #elif TARGET_OS_MAC
+#import <AppKit/AppKit.h>
 
 #define VIEW_CLASS  NSView
 #define VC_CLASS    NSViewController
@@ -31,6 +33,7 @@
 
 #define FONT_CLASS  NSFont
 #define COLOR_CLASS NSColor
+#define IMAGE_CLASS NSImage
 
 #endif
 

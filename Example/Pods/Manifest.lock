@@ -10,19 +10,20 @@ PODS:
     - PoporUI/IToast
     - PoporUI/UIView
     - ReactiveObjC
-  - PoporFoundation/NSAssistant (0.0.15):
+  - PoporFoundation/NSAssistant (0.0.29):
     - PoporFoundation/PrefixCore
-  - PoporFoundation/NSObject (0.0.15)
-  - PoporFoundation/NSString (0.0.15):
     - PoporFoundation/PrefixOs
-  - PoporFoundation/PrefixCore (0.0.15):
+  - PoporFoundation/NSObject (0.0.29)
+  - PoporFoundation/NSString (0.0.29):
     - PoporFoundation/PrefixOs
-  - PoporFoundation/PrefixOs (0.0.15)
+  - PoporFoundation/PrefixCore (0.0.29):
+    - PoporFoundation/PrefixOs
+  - PoporFoundation/PrefixOs (0.0.29)
   - PoporOrientation (0.0.3):
     - PoporFoundation/NSObject
-  - PoporUI/IToast (0.0.8):
+  - PoporUI/IToast (0.0.38):
     - PoporFoundation/NSString
-  - PoporUI/UIView (0.0.8)
+  - PoporUI/UIView (0.0.38)
   - ReactiveObjC (3.1.0)
 
 DEPENDENCIES:
@@ -45,11 +46,11 @@ SPEC CHECKSUMS:
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PoporAVPlayer: 827529f3ad1b9d33edaafe3611b79191cfec519b
-  PoporFoundation: 0293bddbd32f0c12b80c6149105e2804ae79b16c
+  PoporFoundation: cff730f97d34e15721657efb6c144d5eeb297180
   PoporOrientation: 92216eb28427bc152e897c5edf6725aaa1c766cf
-  PoporUI: 09366ba0d18b7099d7b3a37aaf7cac84a4954980
+  PoporUI: 682896c851aacce3f515e9f76b5b6f7ab26e0b7b
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
 
 PODFILE CHECKSUM: eaaf0d04232028d717c5cc0b32373adcb0ae1b4e
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.0

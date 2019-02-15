@@ -21,15 +21,13 @@
 
 @implementation NSAssistant
 
-+ (void)NSLogEntity:(id)theClassEntity title:(NSString *)title
-{
++ (void)NSLogEntity:(id)theClassEntity title:(NSString *)title {
     NSLog(@"实体数据-- %@ --------------------------------", title);
     [self NSLogEntity:theClassEntity];
     NSLog(@"---------------------------------------------");
 }
 
-+ (void)NSLogEntity:(id)theClassEntity
-{
++ (void)NSLogEntity:(id)theClassEntity {
     if (!IsDebugVersion) {
         // 正式版不打印任何数据
         return;
@@ -51,27 +49,35 @@
         propAttributesString =[NSString stringWithCString:propAttributes encoding:NSASCIIStringEncoding];
         
         id value = [theClassEntity valueForKey:propNameString];
-        NSString * valueString;
-        // 根据各个情况处理.
-        if ([propAttributesString hasPrefix:@"T@\"NSString\""]
-            || [propAttributesString hasPrefix:@"T@\"NSMutableString\""]){
-            valueString=[NSString stringWithFormat:@"%@",value];
-        }else if ([propAttributesString hasPrefix:@"Tc"]
-                  || [propAttributesString hasPrefix:@"Ti"]
-                  || [propAttributesString hasPrefix:@"TB"]){
-            valueString=[NSString stringWithFormat:@"%i",[value intValue]];
-        }else if ([propAttributesString hasPrefix:@"Tf"]){
-            valueString=[NSString stringWithFormat:@"%f",[value floatValue]];
-        }else if ([propAttributesString hasPrefix:@"T@\"NSNumber\""]){
-            
-            NSNumber * oneNumber=(NSNumber *)value;
-            valueString=[NSString stringWithFormat:@"%i",[oneNumber intValue]];
+        if (value) {
+            NSLog(@"%@ : %@", propNameString, value);
+        }else{
+            NSLog(@"%@ : __null__", propNameString);
         }
-        if (valueString==nil) {
-            continue;
-        }else {
-            NSLog(@"%@ : %@", propNameString, valueString);
-        }
+        //        continue;
+        //        NSString * valueString;
+        //        // 根据各个情况处理.
+        //        if ([propAttributesString hasPrefix:@"T@\"NSString\""]
+        //            || [propAttributesString hasPrefix:@"T@\"NSMutableString\""]){
+        //            valueString=[NSString stringWithFormat:@"%@",value];
+        //        }else if ([propAttributesString hasPrefix:@"Tc"]
+        //                  || [propAttributesString hasPrefix:@"Ti"]
+        //                  || [propAttributesString hasPrefix:@"TB"]){
+        //            valueString=[NSString stringWithFormat:@"%i",[value intValue]];
+        //        }else if ([propAttributesString hasPrefix:@"Tf"]){
+        //            valueString=[NSString stringWithFormat:@"%f",[value floatValue]];
+        //        }else if ([propAttributesString hasPrefix:@"T@\"NSNumber\""]){
+        //
+        //            NSNumber * oneNumber=(NSNumber *)value;
+        //            valueString=[NSString stringWithFormat:@"%i",[oneNumber intValue]];
+        //        }else{
+        //            NSLog(@"%@ : %@", propNameString, value);
+        //        }
+        //        if (valueString==nil) {
+        //            continue;
+        //        }else {
+        //            NSLog(@"%@ : %@", propNameString, valueString);
+        //        }
     } // end for.
     free(properties);
 }
@@ -194,22 +200,29 @@
     free(properties);
 }
 
-+ (void)setVC:(id)vc dic:(id)dic {
-    if (!dic) {
++ (void)setVC:(VC_CLASS *)vc dic:(id)dic {
+    if (!dic || !vc) {
         return;
     }
-    [vc setValue:dic[@"title"] forKey:@"title"];
+    vc.title = dic[@"title"];
+    [self setEntity:vc dic:dic];
+}
+
++ (void)setEntity:(id)entity dic:(id)dic {
+    if (!dic || !entity) {
+        return;
+    }
     
     unsigned propertyCount;
     
-    objc_property_t *properties = class_copyPropertyList([vc class],&propertyCount);
+    objc_property_t *properties = class_copyPropertyList([entity class],&propertyCount);
     for(int i=0;i<propertyCount;i++){
         NSString * keySName;                              // key string  名字
         NSString * keySAtt;                               // key string  属性
         objc_property_t keyChar = properties[i];          // key Char 属性
         const char *keyCName = property_getName(keyChar); // key Char 名字
         keySName = [NSString stringWithCString:keyCName encoding:NSASCIIStringEncoding];
-
+        
         @try {
             [dic objectForKey:keySName];
         }@catch (NSException * e) {
@@ -235,15 +248,15 @@
         if ([keySAtt hasPrefix:@"Tc"]
             || [keySAtt hasPrefix:@"Ti"]
             || [keySAtt hasPrefix:@"TB"]) {
-            [vc setValue:[NSNumber numberWithInt:[value intValue]] forKey:keySName];
+            [entity setValue:[NSNumber numberWithInt:[value intValue]] forKey:keySName];
             continue;
         }
         if ([keySAtt hasPrefix:@"Tf"]) {
-            [vc setValue:[NSNumber numberWithFloat:[value floatValue]] forKey:keySName];
+            [entity setValue:[NSNumber numberWithFloat:[value floatValue]] forKey:keySName];
             continue;
         }
         // defalut
-        [vc setValue:value forKey:keySName];
+        [entity setValue:value forKey:keySName];
     }
     free(properties);
     
