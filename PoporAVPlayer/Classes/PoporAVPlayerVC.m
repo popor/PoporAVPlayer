@@ -14,8 +14,8 @@
 
 #import "PoporAVPlayerBundle.h"
 
-static int GLViewIndex     = 0;
-static int GLControllIndex = 1;
+static int GLViewIndex0     = 0;
+static int GLControllIndex1 = 1;
 
 
 @interface PoporAVPlayerVC ()
@@ -119,7 +119,7 @@ static int GLControllIndex = 1;
         self.PoporAVPlayerlayer = [[PoporAVPlayerlayer alloc] init];
         self.PoporAVPlayerlayer.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         
-        [self.view insertSubview:self.PoporAVPlayerlayer atIndex:GLViewIndex];
+        [self.view insertSubview:self.PoporAVPlayerlayer atIndex:GLViewIndex0];
         AVPlayerLayer * layer = (AVPlayerLayer *)self.PoporAVPlayerlayer.layer;
         [layer setPlayer:self.avPlayer];
     }
@@ -137,8 +137,8 @@ static int GLControllIndex = 1;
 - (void)addTopBottomBarViews {
     self.view.backgroundColor = [UIColor blackColor];
     
-    [self.view insertSubview:self.topBar atIndex:GLControllIndex];
-    [self.view insertSubview:self.bottomBar atIndex:GLControllIndex];
+    [self.view insertSubview:self.topBar    atIndex:GLControllIndex1];
+    [self.view insertSubview:self.bottomBar atIndex:GLControllIndex1];
     
     [self.bottomBar addSubview:self.playButton];
     [self.bottomBar addSubview:self.rotateButton];
@@ -146,13 +146,13 @@ static int GLControllIndex = 1;
     [self.bottomBar addSubview:self.timeLabel];
     
     // 返回按钮
-    [self.topBar addSubview:self.backButton];
+    [self.topBar    addSubview:self.backButton];
     // 缓冲进度条
     [self.bottomBar insertSubview:self.bufferProgressView belowSubview:self.progressSlider];
     // 快进、快退指示器
-    [self.view addSubview:self.timeIndicatorView];
+    [self.view      addSubview:self.timeIndicatorView];
     // 标题
-    [self.topBar addSubview:self.titleLabel];
+    [self.topBar    addSubview:self.titleLabel];
     // 方向锁
     if (self.showLockRotateBT) {
         [self.topBar addSubview:self.lockRotateBT];
@@ -160,9 +160,9 @@ static int GLControllIndex = 1;
 }
 
 - (void)addTopBottomBarTargetAction {
-    [self.playButton addTarget:self.present action:@selector(playButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-    [self.rotateButton addTarget:self.present action:@selector(rotateAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.backButton addTarget:self.present action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.playButton       addTarget:self.present action:@selector(playButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rotateButton     addTarget:self.present action:@selector(rotateAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.backButton       addTarget:self.present action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
     if (self.showLockRotateBT) {
         [self.lockRotateBT addTarget:self.present action:@selector(lockRotateAction:) forControlEvents:UIControlEventTouchUpInside];
     }
