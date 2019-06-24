@@ -6,7 +6,7 @@
 //  Copyright © 2018年 popor. All rights reserved.
 
 #import "PoporAVPlayerVC.h"
-#import "PoporAVPlayerVCRouter.h"
+#import "PoporAVPlayerVCPresenter.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <Masonry/Masonry.h>
 #import <PoporUI/UIView+Extension.h>
@@ -68,7 +68,9 @@ static int GLControllIndex1 = 1;
     }
     self.view.backgroundColor = [UIColor whiteColor];
     if (!self.present) {
-        [PoporAVPlayerVCRouter setVCPresent:self];
+        PoporAVPlayerVCPresenter * present = [PoporAVPlayerVCPresenter new];
+        self.present = present;
+        [present setMyView:self];
     }
     
     [self addViews];

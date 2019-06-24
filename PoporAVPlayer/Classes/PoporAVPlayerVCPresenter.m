@@ -7,7 +7,6 @@
 
 #import "PoporAVPlayerVCPresenter.h"
 #import "PoporAVPlayerVCInteractor.h"
-#import "PoporAVPlayerVCProtocol.h"
 
 #import <KVOController/KVOController.h>
 #import <ReactiveObjC/ReactiveObjC.h>

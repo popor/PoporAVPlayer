@@ -6,8 +6,7 @@
 //  Copyright © 2018年 popor. All rights reserved.
 
 #import <Foundation/Foundation.h>
-#import "PoporAVPlayerVCEventHandler.h"
-#import "PoporAVPlayerVCDataSource.h"
+#import "PoporAVPlayerVCProtocol.h"
 
 // 处理和View事件
 @interface PoporAVPlayerVCPresenter : NSObject <PoporAVPlayerVCEventHandler, PoporAVPlayerVCDataSource>

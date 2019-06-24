@@ -24,7 +24,6 @@
 //- (int)getViewCode;
 
 - (UIViewController *)vc;
-- (void)setMyPresent:(id)present;
 
 @property (nonatomic, strong) AVPlayer * avPlayer;
 @property (nonatomic, strong) PoporAVPlayerlayer * PoporAVPlayerlayer;
@@ -51,6 +50,38 @@
 @property (nonatomic, copy  ) BlockPVoid    willDisappearBlock;
 @property (nonatomic        ) BOOL          showLockRotateBT;// 是否显示锁定按钮
 
+@end
 
+
+// 数据来源
+@protocol PoporAVPlayerVCDataSource <NSObject>
+
+#pragma mark - 设置播放进度时间为0
+- (void)setDefaultProgressTime;
+
+// app 前后台切换
+- (void)applicationWillResignActive:(NSNotification *)notification;
+- (void)applicationDidBecomeActive:(NSNotification *)notification;
+
+// 移除KVO
+- (void)removeKVO;
+
+@end
+
+
+// UI事件
+@protocol PoporAVPlayerVCEventHandler <NSObject>
+//- (void)didTouchLoginButton;
+
+- (void)handleSingleTapGesture:(UITapGestureRecognizer *)recognizer;
+- (void)setupVideoPlaybackForURL:(NSURL*)url;
+- (void)playButtonTouched:(id)sender;
+
+- (void)beginScrub:(UISlider *)sender;
+- (void)scrubbing:(UISlider *)sender;
+- (void)endScrub:(UISlider *)sender;
+- (void)backButtonClick;
+- (void)rotateAction:(UIButton *)sender;
+- (void)lockRotateAction:(UIButton *)sender;
 
 @end

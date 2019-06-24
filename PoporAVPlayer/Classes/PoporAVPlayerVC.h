@@ -6,8 +6,6 @@
 //  Copyright © 2018年 popor. All rights reserved.
 
 #import <UIKit/UIKit.h>
-#import "PoporAVPlayerVCEventHandler.h"
-#import "PoporAVPlayerVCDataSource.h"
 #import "PoporAVPlayerVCProtocol.h"
 
 @interface PoporAVPlayerVC : UIViewController <PoporAVPlayerVCProtocol>
