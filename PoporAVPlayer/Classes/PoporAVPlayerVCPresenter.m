@@ -40,21 +40,25 @@ NSString * const kStatusKey      = @"status";
 
 - (id)init {
     if (self = [super init]) {
-        [self initInteractors];
         
     }
     return self;
 }
 
-- (void)setMyView:(id<PoporAVPlayerVCProtocol>)view {
-    self.view = view;
+- (void)setMyInteractor:(PoporAVPlayerVCInteractor *)interactor {
+    self.interactor = interactor;
+    
 }
 
-- (void)initInteractors {
-    if (!self.interactor) {
-        self.interactor = [PoporAVPlayerVCInteractor new];
-        
-    }
+- (void)setMyView:(id<PoporAVPlayerVCProtocol>)view {
+    self.view = view;
+    
+}
+
+// 开始执行事件,比如获取网络数据
+- (void)startEvent {
+    
+    
 }
 
 #pragma mark - VC_DataSource

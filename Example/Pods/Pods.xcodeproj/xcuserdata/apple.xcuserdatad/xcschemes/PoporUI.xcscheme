@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "817833671E949B1C5DDEDB675875A7BE"
-               BuildableName = "PoporUI.framework"
+               BuildableName = "libPoporUI.a"
                BlueprintName = "PoporUI"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

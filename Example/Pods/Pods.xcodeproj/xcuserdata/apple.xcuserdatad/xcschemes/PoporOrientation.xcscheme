@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "41A5EBEED271FFE3C5F9445BEDC7905D"
-               BuildableName = "PoporOrientation.framework"
+               BuildableName = "libPoporOrientation.a"
                BlueprintName = "PoporOrientation"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

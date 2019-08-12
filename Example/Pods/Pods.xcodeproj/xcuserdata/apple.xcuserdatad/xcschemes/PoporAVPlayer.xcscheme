@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E0D06D6D196B6951E479A69C10EFFBF5"
-               BuildableName = "PoporAVPlayer.framework"
+               BuildableName = "libPoporAVPlayer.a"
                BlueprintName = "PoporAVPlayer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

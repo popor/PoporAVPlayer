@@ -7,6 +7,7 @@
 
 #import "PoporAVPlayerVC.h"
 #import "PoporAVPlayerVCPresenter.h"
+#import "PoporAVPlayerVCInteractor.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <Masonry/Masonry.h>
 #import <PoporUI/UIView+Extension.h>
@@ -20,7 +21,7 @@ static int GLControllIndex1 = 1;
 
 @interface PoporAVPlayerVC ()
 
-@property (nonatomic, strong) id<PoporAVPlayerVCEventHandler, PoporAVPlayerVCDataSource> present;
+@property (nonatomic, strong) PoporAVPlayerVCPresenter * present;
 
 @end
 
@@ -48,12 +49,6 @@ static int GLControllIndex1 = 1;
 @synthesize lockRotateBT;
 @synthesize showLockRotateBT;
 
-
-- (void)dealloc {
-    [self.present removeKVO];
-    //NSLog(@"PoporAVPlayerVC dealloc, work well.");
-}
-
 - (instancetype)initWithDic:(NSDictionary *)dic {
     if (self = [super init]) {
         [NSAssistant setVC:self dic:dic];
@@ -61,23 +56,9 @@ static int GLControllIndex1 = 1;
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    if (!self.title) {
-        self.title = @"播放器";
-    }
-    self.view.backgroundColor = [UIColor whiteColor];
-    if (!self.present) {
-        PoporAVPlayerVCPresenter * present = [PoporAVPlayerVCPresenter new];
-        self.present = present;
-        [present setMyView:self];
-    }
-    
-    [self addViews];
-    [self masLayoutSubviews];
-    
-    [self.present setDefaultProgressTime];
-    [self.present setupVideoPlaybackForURL:self.videoURL];
+- (void)dealloc {
+    [self.present removeKVO];
+    //NSLog(@"PoporAVPlayerVC dealloc, work well.");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,6 +92,30 @@ static int GLControllIndex1 = 1;
     [PoporOrientation share].lock = NO;
 }
 
+- (void)viewDidLoad {
+    [self assembleViper];
+    [super viewDidLoad];
+    
+    if (!self.title) {
+        self.title = @"播放器";
+    }
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)assembleViper {
+    if (!self.present) {
+        PoporAVPlayerVCPresenter * present = [PoporAVPlayerVCPresenter new];
+        PoporAVPlayerVCInteractor * interactor = [PoporAVPlayerVCInteractor new];
+        
+        self.present = present;
+        [present setMyInteractor:interactor];
+        [present setMyView:self];
+        
+        [self addViews];
+        [self startEvent];
+    }
+}
+
 #pragma mark - views
 - (void)addViews {
     if (!self.avPlayer) {
@@ -128,6 +133,15 @@ static int GLControllIndex1 = 1;
     [self addTopBottomBarViews];
     [self addTopBottomBarTargetAction];
     [self addGR];
+    [self masLayoutSubviews];
+}
+
+// 开始执行事件,比如获取网络数据
+- (void)startEvent {
+    [self.present startEvent];
+    
+    [self.present setDefaultProgressTime];
+    [self.present setupVideoPlaybackForURL:self.videoURL];
 }
 
 - (void)addGR {
@@ -188,16 +202,6 @@ static int GLControllIndex1 = 1;
         
     }
 }
-
-#pragma mark -
-#pragma mark - Action Code
-
-
-#pragma mark -
-#pragma mark - getters and setters
-
-#pragma mark - 设置播放进度时间为0
-
 
 #pragma mark - getter
 - (void)setTitle:(NSString *)title {
