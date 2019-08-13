@@ -44,6 +44,9 @@ static int GLControllIndex1 = 1;
 
 @synthesize rotateButton;
 @synthesize timeIndicatorView;
+
+@synthesize deallocBlock, appStatusBarStyle, viewDidLoadBlock;
+
 @synthesize willAppearBlock;
 @synthesize willDisappearBlock;
 @synthesize lockRotateBT;
@@ -57,8 +60,17 @@ static int GLControllIndex1 = 1;
 }
 
 - (void)dealloc {
-    [self.present removeKVO];
+    [self preDealloc];
     //NSLog(@"PoporAVPlayerVC dealloc, work well.");
+}
+
+- (void)preDealloc {
+    [self.present removeKVO];
+    if (self.deallocBlock) {
+        self.deallocBlock();
+    } else {
+        [UIApplication sharedApplication].statusBarStyle = self.appStatusBarStyle;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,7 +82,7 @@ static int GLControllIndex1 = 1;
     if (self.willAppearBlock) {
         self.willAppearBlock();
     }else{
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
     [self addNC:YES];
 }
@@ -80,7 +92,7 @@ static int GLControllIndex1 = 1;
     if (self.willDisappearBlock) {
         self.willDisappearBlock();
     }else{
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
     [self addNC:NO];
 }
@@ -134,6 +146,13 @@ static int GLControllIndex1 = 1;
     [self addTopBottomBarTargetAction];
     [self addGR];
     [self masLayoutSubviews];
+    
+    if (self.viewDidLoadBlock) {
+        self.viewDidLoadBlock();
+    } else {
+        self.appStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }
 }
 
 // 开始执行事件,比如获取网络数据

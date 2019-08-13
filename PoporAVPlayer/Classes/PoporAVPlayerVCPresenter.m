@@ -95,9 +95,13 @@ NSString * const kStatusKey   = @"status";
     }
 }
 
+// 快速关闭控制条
 - (void)hideControlsFast {
     self.view.topBar.alpha    = DEFAULT_VIEW_ALPHA;
     self.view.bottomBar.alpha = DEFAULT_VIEW_ALPHA;
+    if (self.view.vc.isViewLoaded) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    }
     
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^(void) {
         self.view.topBar.alpha    = 0.0f;
@@ -110,12 +114,16 @@ NSString * const kStatusKey   = @"status";
     }];
 }
 
+// 快速打开控制条
 - (void)showControlsFast {
     self.view.topBar.alpha     = 0.0;
     self.view.topBar.hidden    = NO;
 
     self.view.bottomBar.alpha  = 0.0;
     self.view.bottomBar.hidden = NO;
+    if (self.view.vc.isViewLoaded) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    }
     
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^(void) {
         self.view.topBar.alpha    = DEFAULT_VIEW_ALPHA;
@@ -480,6 +488,7 @@ NSString * const kStatusKey   = @"status";
         }else{
             [self.view.vc dismissViewControllerAnimated:YES completion:nil];
         }
+        [self.view preDealloc];
     }
 }
 

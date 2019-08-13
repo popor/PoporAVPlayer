@@ -20,10 +20,8 @@
 // 对外接口
 @protocol PoporAVPlayerVCProtocol <NSObject>
 
-// MARK: viper auto code
-//- (int)getViewCode;
-
 - (UIViewController *)vc;
+- (void)preDealloc;
 
 @property (nonatomic, strong) AVPlayer * avPlayer;
 @property (nonatomic, strong) PoporAVPlayerlayer * PoporAVPlayerlayer;
@@ -45,6 +43,13 @@
 @property (nonatomic        ) NSInteger      startTick;// 开始播放视频的时间
 
 @property (nonatomic, strong) PoporAVPlayerTimeIndicatorView *timeIndicatorView;/// 快进、快退指示器
+
+// vc 关闭的block,假如没有设置则把状态栏颜色设置为app之前的颜色
+@property (nonatomic, copy  ) BlockPVoid    deallocBlock;
+@property (nonatomic        ) UIStatusBarStyle appStatusBarStyle;
+
+// vc 打开的block,假如没有设置则把状态栏颜色设置为白色
+@property (nonatomic, copy  ) BlockPVoid    viewDidLoadBlock;
 
 @property (nonatomic, copy  ) BlockPVoid    willAppearBlock;
 @property (nonatomic, copy  ) BlockPVoid    willDisappearBlock;
