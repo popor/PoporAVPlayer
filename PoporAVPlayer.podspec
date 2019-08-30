@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'PoporAVPlayer'
-    s.version          = '0.0.09'
+    s.version          = '1.01'
     s.summary          = 'a simple video player, support orientation.'
     
     s.homepage         = 'https://github.com/popor/PoporAVPlayer'
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
     s.dependency 'PoporOrientation'
     s.dependency 'PoporUI/UIView'
     s.dependency 'PoporUI/IToast'
-    s.dependency 'PoporFoundation/PrefixCore'
+    s.dependency 'PoporFoundation/Prefix'
     s.dependency 'PoporFoundation/NSAssistant'
     
     s.dependency 'Masonry'
