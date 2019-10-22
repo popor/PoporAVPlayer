@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'PoporAVPlayer'
-    s.version          = '1.01'
+    s.version          = '1.02'
     s.summary          = 'a simple video player, support orientation.'
     
     s.homepage         = 'https://github.com/popor/PoporAVPlayer'

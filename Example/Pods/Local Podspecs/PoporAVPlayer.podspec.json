@@ -1,6 +1,6 @@
 {
   "name": "PoporAVPlayer",
-  "version": "1.01",
+  "version": "1.02",
   "summary": "a simple video player, support orientation.",
   "homepage": "https://github.com/popor/PoporAVPlayer",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/popor/PoporAVPlayer.git",
-    "tag": "1.01"
+    "tag": "1.02"
   },
   "platforms": {
     "ios": "8.0"
